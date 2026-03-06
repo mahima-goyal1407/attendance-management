@@ -12,6 +12,7 @@ while True:
 
     for (x, y, w, h) in faces:
         c.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 1)
+        c.putText(frame,"face detected",(x,y),c.FONT_HERSHEY_COMPLEX,1,(0,255,0),3)
 
     c.imshow("face detection", frame)
 
