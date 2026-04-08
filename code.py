@@ -66,20 +66,19 @@ while True:
     # val=pd.read_csv("attendance.csv")
     # val.drop_duplicates(inplace=True)
     # val.to_csv("attendance.csv",index=False,header=False)
-    df_2=pd.read_csv("C:\\Users\\Anshu\\OneDrive\\Documents\\class data.csv",header=None)
-    df_2.columns=["name","roll no."]
-    if "name" in df_2.columns:
-        timestamp = str(dt.datetime.now().date())
-
-        df_2[timestamp] = df_2["name"].isin(df["name"])
-        df_2[timestamp] = df_2[timestamp].map({True:"Present", False:"Absent"})
-
-        df_2.to_csv(subject)
-    else:
-        print("no column")
-
     if c.waitKey(1) & 0xFF == 27:
         break
 
 video.release()
 c.destroyAllWindows()
+df_2=pd.read_csv("C:\\Users\\Anshu\\OneDrive\\Documents\\class data.csv",header=None)
+df_2.columns=["name","roll no."]
+if "name" in df_2.columns:
+    timestamp = str(dt.datetime.now().date())
+
+    df_2[timestamp] = df_2["name"].isin(df["name"])
+    df_2[timestamp] = df_2[timestamp].map({True:"Present", False:"Absent"})
+
+    df_2.to_csv(subject)
+else:
+    print("no column")
